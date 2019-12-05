@@ -1,0 +1,30 @@
+
+.phone{
+
+	position:relative;
+	top:20%;
+	left: 50%;
+	margin-right: 15;
+    width: 500px;
+    height: 500px;
+  
+
+	background: url("./../../assets/img/phone.png") no-repeat right bottom;
+    background-size: auto;
+	background-size: contain;
+	
+  
+}
+
+.phone-video{
+
+  position: relative;
+	top:20%;
+	left: 50%;
+	margin-right: 15;
+    width: 500px;
+    height: 800px;
+
+ }
+
+ 
