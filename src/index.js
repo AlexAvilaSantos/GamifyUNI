@@ -34,6 +34,8 @@ ReactDOM.render(
         <Route path="/juego" component={JuegoPage} />
         <Route path="/pokedex" component={Dashboard} />
         <Route path="/pokemon/:pokemonIndex" component={Pokemon} />
+        <Redirect to="/index" />
+        <Redirect from="/" to="/index" />
         </Switch>
     </Switch>
   </BrowserRouter>,
