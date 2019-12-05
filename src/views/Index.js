@@ -34,10 +34,7 @@ function Index() {
       <div className="wrapper">
         <IndexHeader />
         <div className="main">
-          <Download />
-
         </div>
-        <DarkFooter />
       </div>
     </>
   );

@@ -7,7 +7,7 @@ import Juego from './Juego'
 //import { userService } from '../_services';
 
 class JuegoPage extends React.Component {
-    
+
     constructor(props) {
         super(props);
 
@@ -18,26 +18,27 @@ class JuegoPage extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({ 
+        this.setState({
             user: JSON.parse(localStorage.getItem('user')),
             users: { loading: true }
         });
-      //  userService.getAll().then(users => this.setState({ users }));
+        //  userService.getAll().then(users => this.setState({ users }));
     }
 
     render() {
-        
         return (
-            <div>
-                <div><Menu></Menu></div>
-                <div> <Juego /> </div>
-                
+            <div className="bg">
+                <div className="jumbotron">
+                    <div className="container" id="container">
+                        {/* <div className="col-sm-8 col-sm-offset-2" id="hijo-container"> */}
+                            <div>
+                                <div><Menu></Menu></div>
+                                <div> <Juego /> </div>
+                            {/* </div> */}
+                        </div>
+                    </div>
+                </div>
             </div>
-            /*
-ReactDOM.render(<Menu />, document.getElementById('menu'));
-ReactDOM.render(<Home />, document.getElementById('home'));
-ReactDOM.render(<Slider />, document.getElementById('slider'));
-*/
         );
     }
 }
