@@ -22,19 +22,24 @@ import Pokemon from "./juego/Pokedex/pokemon/Pokemon";
 import JuegoPage from "./juego/componentes/juego/JuegoPage";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
+  <div>
+    <BrowserRouter className="jumbotron">
       <Switch>
-        <Route path="/index" render={props => <Index {...props} />} />
-        <Route path="/perfil" render={props => <ProfilePage {...props} />} />
-        <Route path="/login-page" render={props => <LoginPage {...props} />} />
-        <Route path="/juego" component={JuegoPage} />
-        <Route path="/pokedex" component={Dashboard} />
-        <Route path="/pokemon/:pokemonIndex" component={Pokemon} />
-        <Redirect to="/index" />
-        <Redirect from="/" to="/index" />
+        <Switch>
+          <Route path="/index" render={props => <Index {...props} />} />
+          <Route path="/perfil" render={props => <Perfil {...props} />} />
+          <Route
+            path="/login-page"
+            render={props => <LoginPage {...props} />}
+          />
+          <Route path="/juego" component={JuegoPage} />
+          <Route path="/pokedex" component={Dashboard} />
+          <Route path="/pokemon/:pokemonIndex" component={Pokemon} />
+          <Redirect to="/index" />
+          <Redirect from="/" to="/index" />
+        </Switch>
       </Switch>
-    </Switch>
-  </BrowserRouter>,
+    </BrowserRouter>
+  </div>,
   document.getElementById("root")
 );
