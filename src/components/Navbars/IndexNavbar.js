@@ -59,16 +59,15 @@ function IndexNavbar() {
               target="_blank"
               id="navbar-brand"
             >
-            <img
-              alt=".."
-              width="200" 
-              height="100"
-              className="n-logo"
-              src={require("assets/img/pokeunilogo.png")}
-            ></img>
-              
+              <img
+                alt=".."
+                width="200"
+                height="100"
+                className="n-logo"
+                src={require("assets/img/pokeunilogo.png")}
+              ></img>
             </NavbarBrand>
-           
+
             <button
               className="navbar-toggler navbar-toggler"
               onClick={() => {
@@ -103,16 +102,14 @@ function IndexNavbar() {
                   <p>Contáctenos</p>
                 </NavLink>
               </NavItem>
-              
-              <NavItem  href="/login-page">
 
+              <NavItem href="/login-page">
                 <Button
                   className="nav-link btn-light"
                   color="info"
                   to="/login-page"
                   tag={Link}
                   id="upgrade-to-pro"
-                  
                 >
                   <i className="now-ui-icons users_single-02 mr-1"></i>
                   <p>Login</p>
