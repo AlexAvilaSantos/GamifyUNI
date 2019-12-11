@@ -8,7 +8,7 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Menu></Menu>
+        
         <div className="row">
           <div className="col">
             <PokemonList />

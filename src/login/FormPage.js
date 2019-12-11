@@ -48,7 +48,7 @@ class FormPage extends Component {
     if (username === "test" && password === "test") {
       this.setState({ submitted: true });
 
-      const { from } = { from: { pathname: "/perfil"} };
+      const { from } = { from: { pathname: "/game"} };
       this.props.history.push(from);
     } else {
       this.setState({ loading: false });

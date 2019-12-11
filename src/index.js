@@ -17,7 +17,7 @@ import LoginPage from "login/FormPage.js";
 //import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
-import Perfil from "juego/Perfil"
+import Admin from "juego/Admin"
 import Dashboard from "./juego/Pokedex/layout/Dashboard";
 import Pokemon from "./juego/Pokedex/pokemon/Pokemon";
 import JuegoPage from "./juego/componentes/juego/JuegoPage";
@@ -28,13 +28,10 @@ ReactDOM.render(
       <Switch>
         <Route path="/index" render={props => <Index {...props} />} />
         <Route
-          path="/perfil"
-          render={props => <Perfil {...props} />}
+          path="/game"
+          render={props => <Admin {...props} />}
         />
         <Route path="/login-page" render={props => <LoginPage {...props} />} />
-        <Route path="/juego" component={JuegoPage} />
-        <Route path="/pokedex" component={Dashboard} />
-        <Route path="/pokemon/:pokemonIndex" component={Pokemon} />
         <Redirect to="/index" />
         <Redirect from="/" to="/index" />
         </Switch>

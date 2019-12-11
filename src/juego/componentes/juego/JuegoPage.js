@@ -32,7 +32,7 @@ class JuegoPage extends React.Component {
                     <div className="container" id="container">
                         {/* <div className="col-sm-8 col-sm-offset-2" id="hijo-container"> */}
                             <div>
-                                <div><Menu></Menu></div>
+                               
                                 <div> <Juego /> </div>
                             {/* </div> */}
                         </div>

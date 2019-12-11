@@ -3,9 +3,6 @@ import React from "react";
 import { Container } from "reactstrap";
 // core components
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import { Player } from 'video-react';
-import {Row  } from "reactstrap";
-import {Col }  from "reactstrap";
 function IndexHeader() {
   let pageHeader = React.createRef();
 
