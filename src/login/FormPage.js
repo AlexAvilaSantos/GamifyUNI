@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import {  MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import LoginNavbar from "components/Navbars/LoginNavbar.js";
 // reactstrap components
-//import './FormPage.css'
+import './FormPage.css'
 import {
   
   Container,
