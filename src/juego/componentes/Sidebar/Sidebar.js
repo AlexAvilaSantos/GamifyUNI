@@ -14,7 +14,6 @@ import Icon from "@material-ui/core/Icon";
 // core components
 import AdminNavbarLinks from "juego/componentes/Navbars/AdminNavbarLinks.js";
 
-
 import styles from "assets/sidebarStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -31,20 +30,17 @@ export default function Sidebar(props) {
       {routes.map((prop, key) => {
         var activePro = " ";
         var listItemClasses;
-       
-          listItemClasses = classNames({
-            [" " + classes[color]]: activeRoute( prop.path)
-          });
-        
+
+        listItemClasses = classNames({
+          [" " + classes[color]]: activeRoute(prop.path)
+        });
+
         const whiteFontClasses = classNames({
           [" " + classes.whiteFont]: activeRoute(prop.path)
         });
 
         return (
-          <NavLink
-            to={prop.layout + prop.path} 
-          >
-
+          <NavLink to={prop.layout + prop.path}>
             <ListItem button className={classes.itemLink + listItemClasses}>
               {typeof prop.icon === "string" ? (
                 <Icon
@@ -62,7 +58,6 @@ export default function Sidebar(props) {
                 />
               )}
               <ListItemText
-
                 primary={props.rtlActive ? prop.rtlName : prop.name}
                 className={classNames(classes.itemText, whiteFontClasses, {
                   [classes.itemTextRTL]: props.rtlActive
@@ -70,7 +65,6 @@ export default function Sidebar(props) {
                 disableTypography={true}
               />
             </ListItem>
-            
           </NavLink>
         );
       })}
@@ -78,13 +72,12 @@ export default function Sidebar(props) {
   );
   var brand = (
     <div className={classes.logo}>
-
       <a
-        href="https://www.creative-tim.com?ref=mdr-sidebar"
+        href="/game"
         className={classNames(classes.logoLink, {
           [classes.logoLinkRTL]: props.rtlActive
         })}
-        target="_blank"
+        //target="_blank"
       >
         <div className={classes.logoImage}>
           <img src={logo} alt="logo" className={classes.img} />
@@ -114,7 +107,6 @@ export default function Sidebar(props) {
           <div className={classes.sidebarWrapper}>
             {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
             {links}
-
           </div>
           {image !== undefined ? (
             <div
