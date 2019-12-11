@@ -63,7 +63,7 @@ class FormPage extends Component {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/main.jpg") + ")"
+            backgroundImage: "url(" + require("assets/img/fondohd.png") + ")"
           }}
         ></div>
         <div className="content">
@@ -76,7 +76,7 @@ class FormPage extends Component {
                   onSubmit={this.handleSubmit}
                   noValidate
                 >
-              <p className="h5 text-left md-6">Sign in</p>
+              <p className="h5 text-left md-6">SIGN IN</p>
               <MDBRow>
                 <MDBCol md="6">
                   <div
