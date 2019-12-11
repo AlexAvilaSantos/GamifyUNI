@@ -3,7 +3,6 @@ import React from 'react';
 import Menu from '../menu/Menu'; // Componente Menú 
 import Slider from '../home/slider/Slider';
 import Servicios from '../servicios/Servicios';
-import Footer from '../footer/Footer'; // Componente Footer  
 import axios from 'axios'
 
 import Mapa from './mapa/Mapa';
@@ -54,7 +53,6 @@ class Juego extends React.Component {
 						<hr className="featurette-divider" />
 					</div>
 				</main>
-				<Footer />
 			</>
 
 		)

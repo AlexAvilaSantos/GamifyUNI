@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Menu from '../menu/Menu'
+import Footer from '../footer/Footer'; // Componente Footer  
 
 import Juego from './Juego'
 
@@ -34,6 +35,7 @@ class JuegoPage extends React.Component {
                             <div>
                                 <div><Menu></Menu></div>
                                 <div> <Juego /> </div>
+                                <div> <Footer /> </div>
                             {/* </div> */}
                         </div>
                     </div>

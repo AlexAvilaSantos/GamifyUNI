@@ -11,20 +11,74 @@ export const pointerIcon = new L.Icon({
     iconSize: [25, 25],
 })
 
+const abc = {
+    respuestas: [
+        "uabsbaskjnasfsa",
+        "basfasafsdsaaa",
+        "casfasaaaa"
+    ],
+}
+
 //pokemonIcon define los iconos que van a ir en los marcadores 
 //en mapa apartir del nombre del pokemon
-function pokemonIcon(name){
+function pokemonIcon(name) {
     return new L.Icon({
-        iconUrl: require('../iconos/'+name+'.jpg'),
+        iconUrl: require('../iconos/' + name + '.jpg'),
         iconAnchor: [12.5, 25],
         popupAnchor: [0, -25],
         iconSize: [25, 25],
     })
 }
 
-function pokeMarkers(){
-    return <Marker/>
+function pokeMarkers() {
+    return <Marker />
+
+}
+
+function showOptions(options) {
+    // return(
+    //     <>
+    //     <div class="custom-control custom-radio">
+    //         <input type="radio" id="customRadio1" name="customRadio" className="custom-control-input"/>
+    //         <label class="custom-control-label" for="customRadio1">
+    //             A
+    //         </label>
+    //     </div>
+         
+    //     <div class="custom-control custom-radio">
+    //         <input type="radio" id="sddo2" name="customRadio" className="custom-control-input"/>
+    //         <label class="custom-control-label" for="sddo2">
+    //             A
+    //         </label>
+    //     </div>
+
+    //     <div class="custom-control custom-radio">
+    //         <input type="radio" id="customRsd" name="customRadio" className="custom-control-input"/>
+    //         <label class="custom-control-label" for="customRsd">
+    //             A
+    //         </label>
+    //     </div>
+    //      </>
+    // );
+    return options.map((option)=>
+        <div class="custom-control custom-radio">
+            <input type="radio" id={`default-${option}`} name="customRadio" className="custom-control-input"/>
+            <label class="custom-control-label" for={`default-${option}`}>
+                {option}
+            </label>
+        </div>
+
+    //     <div className="form-check">
+    //         <input className="form-ckeck-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" />
+    //         <label className="form-check-label" for="exampleRadios1">
+    //             {option}
+    //         </label>
+    //    </div>
+    );
+        
+
     
+
 }
 
 class Mapa extends Component {
@@ -37,19 +91,33 @@ class Mapa extends Component {
     render() {
         const usrPosition = [this.props.userLocation.lat, this.props.userLocation.lng]
         const pokeData = this.props.pokeData
-        console.log("usrposu",usrPosition)
+        console.log("usrposu", usrPosition)
         if (pokeData[0]) {
             console.log("pokedata defined")
             pokeMarkers = pokeData.map((pokeInfo) =>
-            <Marker position={[pokeInfo.position.x,pokeInfo.position.y]} icon={pokemonIcon(pokeInfo.name)}>
-                <Popup>
-                    {pokeInfo.question}<br />
-                    <form className="form-inline mt-2 mt-md-0">
-				        <input className="form-control form-control-sm" type="text" placeholder="Respuesta" aria-label="Respuesta"/>
-				    </form>
-                    <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
-                </Popup>
-            </Marker>
+                <Marker position={[pokeInfo.position.x, pokeInfo.position.y]} icon={pokemonIcon(pokeInfo.name)}>
+                    <Popup>
+                        <form>
+                        <div className="form-group">
+                            <label>{pokeInfo.question}</label>
+                        </div>
+                        </form>
+                        {showOptions(abc.respuestas)}
+                        {/* <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"/>
+                            <label class="custom-control-label" for="customRadio1">
+                                Toggle this custom radio
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"/>
+                            <label class="custom-control-label" for="customRadio2">
+                                Or toggle this other custom radio
+                            </label>
+                        </div> */}
+                        <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                    </Popup>
+                </Marker>
             );
         }
         return (
