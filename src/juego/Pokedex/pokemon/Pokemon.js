@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import Menu from "../../componentes/menu/Menu";
+import "../layout/Dashboard.css";
 
 const TYPE_COLORS = {
   bug: "B1C12E",
@@ -189,9 +190,8 @@ export default class Pokemon extends Component {
 
   render() {
     return (
-      <div>
+      <div className="jumbotron">
         {" "}
-        
         <div className="col">
           <div className="card">
             <div className="card-header">
