@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import {  MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import LoginNavbar from "components/Navbars/LoginNavbar.js";
 // reactstrap components
+//import './FormPage.css'
 import {
   
   Container,
@@ -88,7 +89,7 @@ class FormPage extends Component {
                       value={username}
                       onChange={this.handleChange}
                       name="username"
-                      label="Type your username"
+                      label="Ingresa tu usuario"
                       icon="user"
                       id="materialFormRegisterNameEx"
                       type="text"
@@ -102,7 +103,7 @@ class FormPage extends Component {
                   <MDBInput
                     value={password}
                     onChange={this.handleChange}
-                    label="Type your password"
+                    label="Ingresa tu contraseña"
                     icon="lock"
                     name="password"
                     type="password"
