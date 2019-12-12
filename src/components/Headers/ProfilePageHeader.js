@@ -43,11 +43,11 @@ function ProfilePageHeader() {
           <p className="category">Entrenador Pokemon</p>
           <div className="content">
             <div className="social-description">
-              <h2>6</h2>
+              <h2>151</h2>
               <p>Pokemones capturados</p>
             </div>
             <div className="social-description">
-              <h2>6</h2>
+              <h2>151</h2>
               <p>Problemas resueltos</p>
             </div>
             <div className="social-description">
