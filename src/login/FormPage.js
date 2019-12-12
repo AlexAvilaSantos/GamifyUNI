@@ -10,7 +10,7 @@ import {
   Container,
   Col
 } from "reactstrap";
-import Axios from "axios";
+
 
 // core components
 
