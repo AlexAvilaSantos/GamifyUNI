@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 //const USER_API_BASE_URL = 'http://localhost:8080/token/';
-const USER_API_BASE_URL = 'http://localhost:8080/';
+const USER_API_BASE_URL = 'https://api.myjson.com/bins/oti30';
 class AuthService {
 
     login(credentials){
-        return axios.post(USER_API_BASE_URL+'loginUser', credentials);
+       // return axios.post(USER_API_BASE_URL,credentials);
+       return axios.get(USER_API_BASE_URL);
     }
 
     getUserInfo(){

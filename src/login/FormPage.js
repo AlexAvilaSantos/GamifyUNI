@@ -53,9 +53,11 @@ class FormPage extends Component {
 
     }
     AuthService.login(user_credentials).then(res=>{
-      if(res.data.status===200){
+      console.log(res.data)
+      if(res.data.status==="true"){
         this.setState({ submitted: true });
-        localStorage.setItem('user',JSON.stringify(res.data.result));
+        localStorage.setItem('users',JSON.stringify(res.data));
+       
         const { from } = { from: { pathname: "/game"} };
         this.props.history.push(from);
 
