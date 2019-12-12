@@ -11,7 +11,6 @@ import DarkFooter from "components/Footers/DarkFooter.js";
 import Example from "views/index-sections/Examples.js";
 // sections for this page
 
-
 import Javascript from "./index-sections/Javascript.js";
 
 import Download from "./index-sections/Download.js";
@@ -33,8 +32,7 @@ function Index() {
       <IndexNavbar />
       <div className="wrapper">
         <IndexHeader />
-        <div className="main">
-        </div>
+        <div className="main"></div>
       </div>
     </>
   );

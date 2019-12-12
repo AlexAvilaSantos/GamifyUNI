@@ -22,7 +22,7 @@ function IndexHeader() {
 
   return (
     <>
-    <IndexNavbar />
+      {/* <IndexNavbar /> */}
       <div className="page-header clear-filter" filter-color="blue">
         <div
           className="page-header-image"
@@ -31,25 +31,21 @@ function IndexHeader() {
           }}
           ref={pageHeader}
         ></div>
-        <Container >      
-              <div className="content-center brand">        
-                <img
-                  alt=".."
-                  className="n-logo"
-                  src={require("assets/img/pokeball.svg")}
-                ></img>
-                <h1 className="h1-seo"> POKEUNI</h1>
-                <h3>¿Quieres tener pokemons en tu empresa?</h3>
-              </div>               
+        <Container>
+          <div className="content-center brand">
+            <img
+              alt=".."
+              className="n-logo"
+              src={require("assets/img/pokeball.svg")}
+            ></img>
+            <h1 className="h1-seo"> POKEUNI</h1>
+            <h3>¿Quieres tener pokemons en tu empresa?</h3>
+          </div>
           <h6 className="category category-absolute">
-                Designed by{" "}
-                Alex-Carlos-Konrad-Luis
-                . Coded by{" "}
-                Alex-Carlos-Konrad-Luis
-                .
-              </h6>
+            Designed by Alex-Carlos-Konrad-Luis . Coded by{" "}
+            Alex-Carlos-Konrad-Luis .
+          </h6>
         </Container>
-     
       </div>
     </>
   );

@@ -8,6 +8,7 @@ import Table from "components/Table/Table.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
+import Ranking_serv from "./Ranking_service";
 
 const styles = {
   cardCategoryWhite: {
@@ -41,6 +42,13 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
+// const Empresa = "UNI";
+// let jugadores = [];
+// Ranking_serv.enviar(Empresa).then(res => {
+//   console.log(res.data);
+//   jugadores = res.data.jugador;
+// });
+
 const jugadores = [
   // Devuelve todos los jugadores de la misma empresa
 
@@ -59,7 +67,7 @@ const jugadores = [
   {
     urlImage: "url de la imagen que se genero por defecto",
     id: "3",
-    nombre: "Carlos Espinoza",
+    nombre: "Carlos Ezpinoza",
     puntaje: "920"
   },
   {

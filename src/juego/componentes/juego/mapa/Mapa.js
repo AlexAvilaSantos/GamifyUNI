@@ -14,7 +14,7 @@ export const pointerIcon = new L.Icon({
 });
 
 const abc = {
-  respuestas: ["uabsbaskjnasfsa", "basfasafsdsaaa", "casfasaaaa"]
+  respuestas: ["opción a", "opción b", "opción c"]
 };
 
 //pokemonIcon define los iconos que van a ir en los marcadores
