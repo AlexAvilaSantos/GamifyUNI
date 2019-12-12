@@ -41,50 +41,78 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-const jugadores = [
-  // Devuelve todos los jugadores de la misma empresa
-  {
-    urlImage: "url de la imagen que se genero por defecto",
-    nombre: "Mamerto Porter",
-    puntaje: "2225"
-  },
-  {
-    urlImage: "url de la imagen que se genero por defecto",
-    nombre: "Dakota Rice",
-    puntaje: "1950"
-  },
-  {
-    urlImage: "url de la imagen que se genero por defecto",
-    nombre: "Minerva Hooper",
-    puntaje: "920"
-  }
+const jugadores = [// Devuelve todos los jugadores de la misma empresa
+    
+
+    {
+      urlImage : "url de la imagen que se genero por defecto",
+      id:"1",
+      nombre : "Ash Ketchum",
+      puntaje : "2225"
+    },
+    {
+      urlImage : "url de la imagen que se genero por defecto",
+      id:"2",
+      nombre : "Luis Ramos",
+      puntaje : "1950"
+    },
+    {
+      urlImage : "url de la imagen que se genero por defecto",
+      id : "3",
+      nombre : "Carlos Ezpinoza",
+      puntaje : "920"
+    },
+    {
+      urlImage : "url de la imagen que se genero por defecto",
+      id : "4",
+      nombre : "Alex Avila",
+      puntaje : "850"
+    },
+
+    {
+      urlImage : "url de la imagen que se genero por defecto",
+      id : "5",
+      nombre : "Konrad Trejo",
+      puntaje : "0"
+    }
+
 ];
 
-export default function Ranking() {
+const listItems = jugadores.map((jugador) =>
+  [jugador.id,jugador.nombre,jugador.puntaje]
+);
+
+export default function TableList() {
   const classes = useStyles();
   return (
+
+    
     <GridContainer>
+      
       <GridItem xs={12} sm={12} md={12}>
         <Card plain>
           <CardHeader plain color="primary">
             <h4 className={classes.cardTitleWhite}>
               Participantes de la Universidad Nacional de Ingeniera
             </h4>
-            <p className={classes.cardCategoryWhite}></p>
+            <p className={classes.cardCategoryWhite}>
+              
+            </p>
           </CardHeader>
           <CardBody>
             <Table
               tableHeaderColor="primary"
               tableHead={["Puesto", "Nombre", "Puntaje"]}
-              tableData={[
-                ["1", "Ash Ketchum", "36,738"],
-                ["2", "Minerva Hooper", "23,789"],
-                ["3", "Sage Rodriguez", "56,142"]
-              ]}
+              tableData={listItems}
             />
+            
           </CardBody>
         </Card>
       </GridItem>
     </GridContainer>
+
+      
+      
+    
   );
 }
