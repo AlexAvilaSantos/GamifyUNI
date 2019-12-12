@@ -3,7 +3,9 @@ import { render } from 'react-dom'
 import L from 'leaflet';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 import "bootstrap/dist/css/bootstrap.min.css";
+import Axios from 'axios';
 
+const linkForAnswer = "http//as.sc"
 export const pointerIcon = new L.Icon({
     iconUrl: require('../iconos/voulvas.jpg'),
     iconAnchor: [12.5, 25],
@@ -35,57 +37,48 @@ function pokeMarkers() {
 
 }
 
-function showOptions(options) {
-    // return(
-    //     <>
-    //     <div class="custom-control custom-radio">
-    //         <input type="radio" id="customRadio1" name="customRadio" className="custom-control-input"/>
-    //         <label class="custom-control-label" for="customRadio1">
-    //             A
-    //         </label>
-    //     </div>
-         
-    //     <div class="custom-control custom-radio">
-    //         <input type="radio" id="sddo2" name="customRadio" className="custom-control-input"/>
-    //         <label class="custom-control-label" for="sddo2">
-    //             A
-    //         </label>
-    //     </div>
-
-    //     <div class="custom-control custom-radio">
-    //         <input type="radio" id="customRsd" name="customRadio" className="custom-control-input"/>
-    //         <label class="custom-control-label" for="customRsd">
-    //             A
-    //         </label>
-    //     </div>
-    //      </>
-    // );
-    return options.map((option)=>
-        <div class="custom-control custom-radio">
-            <input type="radio" id={`default-${option}`} name="customRadio" className="custom-control-input"/>
-            <label class="custom-control-label" for={`default-${option}`}>
-                {option}
-            </label>
-        </div>
-
-    //     <div className="form-check">
-    //         <input className="form-ckeck-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" />
-    //         <label className="form-check-label" for="exampleRadios1">
-    //             {option}
-    //         </label>
-    //    </div>
-    );
-        
-
-    
-
-}
-
 class Mapa extends Component {
     state = {
         lat: 51.505,
         lng: -0.09,
         zoom: 18,
+        selectedOption:"default",
+    }
+
+    handleOptionChange = changeEvent => {
+        this.setState({
+          selectedOption: changeEvent.target.value
+        });
+      };
+    
+    handleFormSubmit = formSubmitEvent => {
+        formSubmitEvent.preventDefault();
+        const respuestaReq = {
+            token: "random",
+            id: "ideuser",
+            respuesta: this.state.selectedOption,
+        } 
+        // Axios.post(linkForAnswer, respuestaReq)
+        // .then(res =>{
+        //     console.log(res);
+        //     console.log(res.resultado)
+        //     console.log(res.actualUser)
+        // })
+        console.log("You have submitted:", this.state.selectedOption);
+    };
+
+    showOptions(options, selectedOption) {
+        return options.map((option)=>
+            <div className="custom-control custom-radio">
+                <input type="radio" id={`default-${option}`} name="customRadio" className="custom-control-input"
+                 value={option}
+                 checked={selectedOption === `default-${option}`}
+                 onChange={this.handleOptionChange}/>
+                <label class="custom-control-label" for={`default-${option}`}>
+                    {option}
+                </label>
+            </div>
+        );
     }
 
     render() {
@@ -97,25 +90,15 @@ class Mapa extends Component {
             pokeMarkers = pokeData.map((pokeInfo) =>
                 <Marker position={[pokeInfo.position.x, pokeInfo.position.y]} icon={pokemonIcon(pokeInfo.name)}>
                     <Popup>
-                        <form>
+                        <form onSubmit={this.handleFormSubmit}>
                         <div className="form-group">
                             <label>{pokeInfo.question}</label>
                         </div>
-                        </form>
-                        {showOptions(abc.respuestas)}
-                        {/* <div class="custom-control custom-radio">
-                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"/>
-                            <label class="custom-control-label" for="customRadio1">
-                                Toggle this custom radio
-                            </label>
+                        {this.showOptions(abc.respuestas, this.state.selectedOption)}
+                        <div className="form-group">
+                            <button type="submit" class="btn btn-primary btn-sm" >Enviar</button>
                         </div>
-                        <div class="custom-control custom-radio">
-                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"/>
-                            <label class="custom-control-label" for="customRadio2">
-                                Or toggle this other custom radio
-                            </label>
-                        </div> */}
-                        <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                        </form>
                     </Popup>
                 </Marker>
             );
