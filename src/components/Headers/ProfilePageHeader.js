@@ -51,7 +51,7 @@ function ProfilePageHeader() {
               <p>Problemas resueltos</p>
             </div>
             <div className="social-description">
-              <h2>100</h2>
+              <h2>1</h2>
               <p>Puesto en el ranking</p>
             </div>
           </div>

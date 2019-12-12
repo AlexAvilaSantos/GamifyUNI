@@ -41,51 +41,45 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-const jugadores = [// Devuelve todos los jugadores de la misma empresa
-    {
-      urlImage : "url de la imagen que se genero por defecto",
-      nombre : "Mamerto Porter",
-      puntaje : "2225"
-    },
-    {
-      urlImage : "url de la imagen que se genero por defecto",
-      nombre : "Dakota Rice",
-      puntaje : "1950"
-    },
-    {
-      urlImage : "url de la imagen que se genero por defecto",
-      nombre : "Minerva Hooper",
-      puntaje : "920"
-    }
-
-
+const jugadores = [
+  // Devuelve todos los jugadores de la misma empresa
+  {
+    urlImage: "url de la imagen que se genero por defecto",
+    nombre: "Mamerto Porter",
+    puntaje: "2225"
+  },
+  {
+    urlImage: "url de la imagen que se genero por defecto",
+    nombre: "Dakota Rice",
+    puntaje: "1950"
+  },
+  {
+    urlImage: "url de la imagen que se genero por defecto",
+    nombre: "Minerva Hooper",
+    puntaje: "920"
+  }
 ];
 
 export default function Ranking() {
   const classes = useStyles();
   return (
     <GridContainer>
-      
       <GridItem xs={12} sm={12} md={12}>
         <Card plain>
           <CardHeader plain color="primary">
             <h4 className={classes.cardTitleWhite}>
               Participantes de la Universidad Nacional de Ingeniera
             </h4>
-            <p className={classes.cardCategoryWhite}>
-              
-            </p>
+            <p className={classes.cardCategoryWhite}></p>
           </CardHeader>
           <CardBody>
             <Table
               tableHeaderColor="primary"
               tableHead={["Puesto", "Nombre", "Puntaje"]}
               tableData={[
-                ["1", "Konrad el GIL", "36,738"],
+                ["1", "Ash Ketchum", "36,738"],
                 ["2", "Minerva Hooper", "23,789"],
-                ["3", "Sage Rodriguez", "56,142"],
-              
-              
+                ["3", "Sage Rodriguez", "56,142"]
               ]}
             />
           </CardBody>

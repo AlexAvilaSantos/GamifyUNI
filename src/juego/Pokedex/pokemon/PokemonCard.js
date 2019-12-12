@@ -81,7 +81,7 @@ export default class PokemonCard extends Component {
                   ? { display: "none" }
                   : this.state.imageLoading
                   ? null
-                  : { display: "block" }
+                  : { display: "block", width: "5em" }
               }
             />
             {this.state.toManyRequests ? (
