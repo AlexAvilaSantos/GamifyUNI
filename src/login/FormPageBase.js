@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import {  MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import LoginNavbar from "components/Navbars/LoginNavbar.js";
-import AuthService from './__componentes/AuthService';
 // reactstrap components
 import './FormPage.css'
 import {
@@ -10,7 +9,6 @@ import {
   Container,
   Col
 } from "reactstrap";
-
 
 // core components
 
@@ -26,7 +24,6 @@ class FormPage extends Component {
       username: "",
       password: "",
       submitted: false,
-      status:false,
       loading: false,
       error: ""
     };
@@ -34,41 +31,29 @@ class FormPage extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount(){
-    localStorage.clear();
-  }
-
   handleChange(e) {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
 
+    this.setState({ [name]: value });
   }
 
-
   handleSubmit(e) {
-    e.preventDefault()
-    const user_credentials ={
-      name:this.setState.username,
-      password:this.setState.password
+    //e.preventDefault();
 
+    this.setState({ submitted: true });
+    const { username, password } = this.state;
+
+    // stop here if form is invalid
+
+    this.setState({ loading: true });
+    if (username === "test" && password === "test") {
+      this.setState({ submitted: true });
+
+      const { from } = { from: { pathname: "/game"} };
+      this.props.history.push(from);
+    } else {
+      this.setState({ loading: false });
     }
-    AuthService.login(user_credentials).then(res=>{
-      console.log(res.data)
-      if(res.data.status==="true"){
-        this.setState({ submitted: true });
-        localStorage.setItem('users',JSON.stringify(res.data));
-       
-        const { from } = { from: { pathname: "/game"} };
-        this.props.history.push(from);
-
-     }else{
-       this.setState({error:res.data.message})
-       this.setState({ loading: false });
-     }
-
-    })
-
-    
   }
   render() {
     const { username, password, submitted, loading, error } = this.state;
