@@ -65,14 +65,14 @@ const jugadores = [// Devuelve todos los jugadores de la misma empresa
     {
       urlImage : "url de la imagen que se genero por defecto",
       id : "4",
-      nombre : "Alex Avila",
+      nombre : "Konrad Trejo",
       puntaje : "850"
     },
 
     {
       urlImage : "url de la imagen que se genero por defecto",
       id : "5",
-      nombre : "Konrad Trejo",
+      nombre : "Alex Avila",
       puntaje : "0"
     }
 
