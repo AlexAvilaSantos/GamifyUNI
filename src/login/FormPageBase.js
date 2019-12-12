@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import {  MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import LoginNavbar from "components/Navbars/LoginNavbar.js";
-import AuthService from './__componentes/AuthService';
 // reactstrap components
 import './FormPage.css'
 import {
@@ -10,7 +9,6 @@ import {
   Container,
   Col
 } from "reactstrap";
-import Axios from "axios";
 
 // core components
 
@@ -26,7 +24,6 @@ class FormPage extends Component {
       username: "",
       password: "",
       submitted: false,
-      status:false,
       loading: false,
       error: ""
     };
@@ -34,29 +31,14 @@ class FormPage extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount(){
-    localStorage.clear();
-  }
-
   handleChange(e) {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
 
+    this.setState({ [name]: value });
   }
 
-
   handleSubmit(e) {
-    e.preventDefault()
-    const user_credentials ={
-      name:this.setState.username,
-      password:this.setState.password
-
-    }
-    AuthService.login(user_credentials).then(res=>{
-      if(res.data.status===true){
-        localStorage.setItem('user')
-      }
-    })
+    //e.preventDefault();
 
     this.setState({ submitted: true });
     const { username, password } = this.state;
