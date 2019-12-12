@@ -1,23 +1,23 @@
 import axios from 'axios';
 
 //const USER_API_BASE_URL = 'http://localhost:8080/token/';
-const USER_API_BASE_URL = 'http://localhost:8080/loginUser';
+const USER_API_BASE_URL = 'http://localhost:8080/';
 class AuthService {
 
     login(credentials){
-        return axios.post(USER_API_BASE_URL, credentials);
+        return axios.post(USER_API_BASE_URL+'loginUser', credentials);
     }
 
     getUserInfo(){
-        return JSON.parse(localStorage.getItem("userInfo"));
+        return JSON.parse(localStorage.getItem("user"));
     }
 
     getAuthHeader() {
-       return {headers: {Authorization: 'Bearer ' + this.getUserInfo().token }};
+       return {headers: {Authorization: 'Bearer' + this.getUserInfo().token }};
     }
 
     logOut() {
-        localStorage.removeItem("userInfo");
+        localStorage.removeItem("user");
         return axios.post(USER_API_BASE_URL + 'logout', {}, this.getAuthHeader());
     }
 }

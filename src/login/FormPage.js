@@ -53,25 +53,20 @@ class FormPage extends Component {
 
     }
     AuthService.login(user_credentials).then(res=>{
-      if(res.data.status===true){
-        localStorage.setItem('user')
-      }
+      if(res.data.status===200){
+        this.setState({ submitted: true });
+        localStorage.setItem('user',JSON.stringify(res.data.result));
+        const { from } = { from: { pathname: "/game"} };
+        this.props.history.push(from);
+
+     }else{
+       this.setState({error:res.data.message})
+       this.setState({ loading: false });
+     }
+
     })
 
-    this.setState({ submitted: true });
-    const { username, password } = this.state;
-
-    // stop here if form is invalid
-
-    this.setState({ loading: true });
-    if (username === "test" && password === "test") {
-      this.setState({ submitted: true });
-
-      const { from } = { from: { pathname: "/game"} };
-      this.props.history.push(from);
-    } else {
-      this.setState({ loading: false });
-    }
+    
   }
   render() {
     const { username, password, submitted, loading, error } = this.state;
