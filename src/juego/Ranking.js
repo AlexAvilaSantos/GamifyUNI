@@ -41,63 +41,59 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-const jugadores = [// Devuelve todos los jugadores de la misma empresa
-    
+const jugadores = [
+  // Devuelve todos los jugadores de la misma empresa
 
-    {
-      urlImage : "url de la imagen que se genero por defecto",
-      id:"1",
-      nombre : "Ash Ketchum",
-      puntaje : "2225"
-    },
-    {
-      urlImage : "url de la imagen que se genero por defecto",
-      id:"2",
-      nombre : "Luis Ramos",
-      puntaje : "1950"
-    },
-    {
-      urlImage : "url de la imagen que se genero por defecto",
-      id : "3",
-      nombre : "Carlos Ezpinoza",
-      puntaje : "920"
-    },
-    {
-      urlImage : "url de la imagen que se genero por defecto",
-      id : "4",
-      nombre : "Konrad Trejo",
-      puntaje : "850"
-    },
+  {
+    urlImage: "url de la imagen que se genero por defecto",
+    id: "1",
+    nombre: "Ash Ketchum",
+    puntaje: "2225"
+  },
+  {
+    urlImage: "url de la imagen que se genero por defecto",
+    id: "2",
+    nombre: "Luis Ramos",
+    puntaje: "1950"
+  },
+  {
+    urlImage: "url de la imagen que se genero por defecto",
+    id: "3",
+    nombre: "Carlos Espinoza",
+    puntaje: "920"
+  },
+  {
+    urlImage: "url de la imagen que se genero por defecto",
+    id: "4",
+    nombre: "Konrad Trejo",
+    puntaje: "850"
+  },
 
-    {
-      urlImage : "url de la imagen que se genero por defecto",
-      id : "5",
-      nombre : "Alex Avila",
-      puntaje : "0"
-    }
-
+  {
+    urlImage: "url de la imagen que se genero por defecto",
+    id: "5",
+    nombre: "Alex Avila",
+    puntaje: "0"
+  }
 ];
 
-const listItems = jugadores.map((jugador) =>
-  [jugador.id,jugador.nombre,jugador.puntaje]
-);
+const listItems = jugadores.map(jugador => [
+  jugador.id,
+  jugador.nombre,
+  jugador.puntaje
+]);
 
 export default function TableList() {
   const classes = useStyles();
   return (
-
-    
     <GridContainer>
-      
       <GridItem xs={12} sm={12} md={12}>
         <Card plain>
           <CardHeader plain color="primary">
             <h4 className={classes.cardTitleWhite}>
               Participantes de la Universidad Nacional de Ingeniera
             </h4>
-            <p className={classes.cardCategoryWhite}>
-              
-            </p>
+            <p className={classes.cardCategoryWhite}></p>
           </CardHeader>
           <CardBody>
             <Table
@@ -105,14 +101,9 @@ export default function TableList() {
               tableHead={["Puesto", "Nombre", "Puntaje"]}
               tableData={listItems}
             />
-            
           </CardBody>
         </Card>
       </GridItem>
     </GridContainer>
-
-      
-      
-    
   );
 }
