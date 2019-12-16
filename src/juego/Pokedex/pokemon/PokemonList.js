@@ -6,13 +6,15 @@ import axios from "axios";
 
 export default class PokemonList extends Component {
   state = {
-    url: "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151",
+    // url: "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151",
+    url: "http://api.myjson.com/bins/13hwm4",
     pokemon: null
   };
 
   async componentDidMount() {
     const res = await axios.get(this.state.url);
-    this.setState({ pokemon: res.data["results"] });
+    // this.setState({ pokemon: res.data["results"] });
+    this.setState({ pokemon: res.data.data["pokedex"] });
   }
 
   render() {
@@ -24,7 +26,12 @@ export default class PokemonList extends Component {
               <PokemonCard
                 key={pokemon.name}
                 name={pokemon.name}
-                url={pokemon.url}
+                url={
+                  "https://pokeapi.co/api/v2/pokemon/" +
+                  pokemon.name.toLowerCase() +
+                  "/"
+                }
+                // url={pokemon.url}
               />
             ))}
           </div>

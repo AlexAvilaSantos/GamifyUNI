@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import spinner from "../layout/spinner.gif";
 
+import axios from "axios";
 const Sprite = styled.img`
   width: 5em;
   height: 5em;
@@ -44,13 +45,20 @@ export default class PokemonCard extends Component {
     imageUrl: "",
     pokemonIndex: "",
     imageLoading: true,
-    toManyRequests: false
+    toManyRequests: false,
+    id: ""
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const { name, url } = this.props;
-
-    const pokemonIndex = url.split("/")[url.split("/").length - 2];
+    const res = await axios.get(url);
+    // console.log("AHHHHHH");
+    // console.log(url);
+    // console.log(res);
+    // const pokemonIndex = url.split("/")[url.split("/").length - 2];
+    const pokemonIndex = res.data.id;
+    // console.log("hola");
+    // console.log(pokemonIndex);
     //const imageUrl = `./sprites/pokemon/${pokemonIndex}.png`;
     const imageUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`;
 
@@ -58,6 +66,7 @@ export default class PokemonCard extends Component {
   }
 
   render() {
+    var number = 0;
     return (
       <div className="col-md-3 col-sm-6 mb-5">
         <StyledLink to={`pokemon/${this.state.pokemonIndex}`}>
@@ -75,7 +84,7 @@ export default class PokemonCard extends Component {
               className="card-img-top rounded mx-auto mt-2"
               src={this.state.imageUrl}
               onLoad={() => this.setState({ imageLoading: false })}
-              onError={() => this.setState({ toManyRequests: true })}
+              onError={() => this.setState({ toManyRequests: false })}
               style={
                 this.state.toManyRequests
                   ? { display: "none" }
