@@ -23,11 +23,11 @@ class Juego extends React.Component {
 		console.log("esperando pos")
 		navigator.geolocation.getCurrentPosition((position) => {
 			axios.get(backendlink)
-			.then(result => {
-				const pokeData = result.data.nearest;
-				this.setState ({pokeData})
-				console.log("axios",pokeData)
-			}).catch(console.log)
+				.then(result => {
+					const pokeData = result.data.nearest;
+					this.setState({ pokeData })
+					console.log("axios", pokeData)
+				}).catch(console.log)
 			console.log("pos obtenida")
 			this.setState(
 				{
@@ -43,13 +43,13 @@ class Juego extends React.Component {
 
 	render() {
 		const userLocation = this.state.userLocation;
-		const pokeData =  this.state.pokeData;
+		const pokeData = this.state.pokeData;
 		console.log("render")
 		return (
 			<>
-				<main role="main" className="flex-shrink-0 mt-5">	
-					<div className="container">	
-						<Mapa userLocation={userLocation} pokeData={pokeData}/>
+				<main role="main" className="flex-shrink-0 mt-5">
+					<div className="container">
+						<Mapa userLocation={userLocation} pokeData={pokeData} />
 						<hr className="featurette-divider" />
 					</div>
 				</main>
