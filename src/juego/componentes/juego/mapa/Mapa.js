@@ -3,9 +3,13 @@ import { render } from "react-dom";
 import L from "leaflet";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Axios from "axios";
+import axios from "axios";
+import ModalExample from "./ModalExample"
 
-const linkForAnswer = "http//as.sc";
+// const linkForAnswer = `https://jsonplaceholder.typicode.com/users`;
+const linkForAnswer = `https://api.myjson.com/bins/enlbk`;
+// const linkForAnswer = `https://my-json-server.typicode.com/typicode/demo/posts`;
+// const linkForAnswer = `https://my-json-server.typicode.com/LuisERG/demo/posts/1`;
 export const pointerIcon = new L.Icon({
   iconUrl: require("../iconos/voulvas.jpg"),
   iconAnchor: [12.5, 25],
@@ -28,21 +32,71 @@ function pokemonIcon(name) {
   });
 }
 
-function pokeMarkers() {
-  return <Marker />;
-}
-
 class Mapa extends Component {
   state = {
     lat: 51.505,
     lng: -0.09,
     zoom: 18,
-    selectedOption: "default"
+    selectedOption: "default",
+    resultado: "none",
+    show: false
   };
+
+  showModal = () =>{
+    this.setState({show: true})
+  }
+
+  hideModal = () =>{
+    this.setState({show: false})
+  }
+
+  showMarkers(pokeInfo){
+    if (pokeInfo.state === "free") {
+      return (
+        <Marker
+          position={[pokeInfo.position.x, pokeInfo.position.y]}
+          icon={pokemonIcon(pokeInfo.name)}
+        >
+          <Popup>
+            <form onSubmit={this.handleFormSubmit}>
+              <div className="form-group">
+                <label>{pokeInfo.question}</label>
+              </div>
+              {this.showOptions(abc.respuestas, this.state.selectedOption)}
+              <div className="form-group">
+                {/* <button type="submit" className="btn btn-primary btn-sm">
+                  Enviar
+                </button> */}
+                <ModalExample type={"submit"}/>
+              </div>
+            </form>
+          </Popup>
+        </Marker>
+      )
+    }
+  }
+
+  setModal(){
+    console.log("MODALLALLA")
+    return(
+<div class="alert alert-primary" role="alert">
+  This is a primary alert—check it out!
+</div>    )
+  }
+
+  showPokemons(){
+    const pokeData = this.props.pokeData;
+    if (pokeData[0]) {
+      console.log("pokedata defined");
+      return pokeData.map(pokeInfo => (
+        this.showMarkers(pokeInfo)
+      ))
+    }
+  }
 
   handleOptionChange = changeEvent => {
     this.setState({
-      selectedOption: changeEvent.target.id
+      selectedOption: changeEvent.target.value
     });
   };
 
@@ -53,12 +107,20 @@ class Mapa extends Component {
       id: "ideuser",
       respuesta: this.state.selectedOption
     };
-    // Axios.post(linkForAnswer, respuestaReq)
-    // .then(res =>{
-    //     console.log(res);
-    //     console.log(res.resultado)
-    //     console.log(res.actualUser)
-    // })
+    axios.get(linkForAnswer)
+    .then(res =>{
+      console.log(res);
+        console.log(res.data.data);
+        this.setState({
+          resultado: res.data.data.resultado
+        })
+        if(this.state.resultado === "correcto"){
+          console.log(this.state.resultado)
+          this.setModal()
+        }
+        //console.log(res.resultado)
+        //console.log(res.actualUser)
+    })
     console.log("You have submitted:", this.state.selectedOption);
   };
 
@@ -71,10 +133,10 @@ class Mapa extends Component {
           name="customRadio"
           className="custom-control-input"
           value={option}
-          checked={selectedOption === `default-${option}`}
+          checked={selectedOption === `${option}`}
           onChange={this.handleOptionChange}
         />
-        <label class="custom-control-label" for={`default-${option}`}>
+        <label className="custom-control-label" for={`default-${option}`}>
           {option}
         </label>
       </div>
@@ -86,32 +148,8 @@ class Mapa extends Component {
       this.props.userLocation.lat,
       this.props.userLocation.lng
     ];
-    const pokeData = this.props.pokeData;
-    console.log("usrposu", usrPosition);
-    if (pokeData[0]) {
-      console.log("pokedata defined");
-      pokeMarkers = pokeData.map(pokeInfo => (
-        <Marker
-          position={[pokeInfo.position.x, pokeInfo.position.y]}
-          icon={pokemonIcon(pokeInfo.name)}
-        >
-          <Popup>
-            <form onSubmit={this.handleFormSubmit}>
-              <div className="form-group">
-                <label>{pokeInfo.question}</label>
-              </div>
-              {this.showOptions(abc.respuestas, this.state.selectedOption)}
-              <div className="form-group">
-                <button type="submit" class="btn btn-primary btn-sm">
-                  Enviar
-                </button>
-              </div>
-            </form>
-          </Popup>
-        </Marker>
-      ));
-    }
     return (
+      // this.showPokemons(),
       <Map className="map" center={usrPosition} zoom={this.state.zoom}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -120,9 +158,10 @@ class Mapa extends Component {
         <Marker position={usrPosition} icon={pointerIcon}>
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
+            <ModalExample/>
           </Popup>
         </Marker>
-        {pokeMarkers}
+        {this.showPokemons()}
       </Map>
     );
   }
