@@ -42,14 +42,6 @@ class Mapa extends Component {
     show: false
   };
 
-  showModal = () =>{
-    this.setState({show: true})
-  }
-
-  hideModal = () =>{
-    this.setState({show: false})
-  }
-
   showMarkers(pokeInfo){
     if (pokeInfo.state === "free") {
       return (
@@ -67,21 +59,14 @@ class Mapa extends Component {
                 {/* <button type="submit" className="btn btn-primary btn-sm">
                   Enviar
                 </button> */}
-                <ModalExample type={"submit"}/>
+                <ModalExample type={"submit"} resultado={this.state.resultado}/>
+                {/* <ModalExample type={"submit"} resultado="incorrecto"/> */}
               </div>
             </form>
           </Popup>
         </Marker>
       )
     }
-  }
-
-  setModal(){
-    console.log("MODALLALLA")
-    return(
-<div class="alert alert-primary" role="alert">
-  This is a primary alert—check it out!
-</div>    )
   }
 
   showPokemons(){
@@ -116,7 +101,6 @@ class Mapa extends Component {
         })
         if(this.state.resultado === "correcto"){
           console.log(this.state.resultado)
-          this.setModal()
         }
         //console.log(res.resultado)
         //console.log(res.actualUser)
