@@ -118,12 +118,14 @@ export default function AdminNavbarLinks() {
                       Settings
                     </MenuItem>
                     <Divider light />
-                    <MenuItem
-                      onClick={handleCloseProfile}
-                      className={classes.dropdownItem}
-                    >
-                      Logout
-                    </MenuItem>
+                    <a href="/index">
+                      <MenuItem
+                        onClick={handleCloseProfile}
+                        className={classes.dropdownItem}
+                      >
+                        Logout
+                      </MenuItem>
+                    </a>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
