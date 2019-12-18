@@ -20,7 +20,8 @@ class FormPage extends Component {
       submitted: false,
       status: false,
       loading: false,
-      error: ""
+      error: "",
+      empresa:""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -39,7 +40,8 @@ class FormPage extends Component {
     e.preventDefault();
     const user_credentials = {
       name: this.setState.username,
-      password: this.setState.password
+      password: this.setState.password,
+      empresa: this.setState.empresa
     };
     AuthService.login(user_credentials).then(res => {
       console.log(res.data);
@@ -56,7 +58,7 @@ class FormPage extends Component {
     });
   }
   render() {
-    const { username, password, submitted, loading, error } = this.state;
+    const { username, password, submitted, loading, error,empresa } = this.state;
     return (
       <>
         <LoginNavbar />
@@ -109,6 +111,16 @@ class FormPage extends Component {
                         required
                         validate={true}
                       >
+                       <MDBInput
+                        value={empresa}
+                        onChange={this.handleChange}
+                        label="Ingrese su empresa"
+                        icon="building"
+                        name="empresa"
+                        type="empresa"
+                        required
+                        validate={true}
+                      ></MDBInput>
                         <div className="invalid-feedback">
                           Please provide a valid password
                         </div>
