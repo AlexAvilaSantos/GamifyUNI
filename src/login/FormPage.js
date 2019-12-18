@@ -39,15 +39,17 @@ class FormPage extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const user_credentials = {
-      name: this.setState.username,
+
       password: this.setState.password,
+      name: this.setState.username,
       empresa: this.setState.empresa
     };
     
     AuthService.login(user_credentials).then(res => {
       console.log(res.data);
-      if (res.data.status === "ok") {
+      if (res.statusText=== "OK") {
         this.setState({ submitted: true });
+        console.log(res.data);
         localStorage.setItem("users", JSON.stringify(res.data));
 
         const { from } = { from: { pathname: "/game" } };
