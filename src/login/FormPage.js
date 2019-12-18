@@ -43,6 +43,7 @@ class FormPage extends Component {
       password: this.setState.password,
       empresa: this.setState.empresa
     };
+    
     AuthService.login(user_credentials).then(res => {
       console.log(res.data);
       if (res.data.status === "ok") {
