@@ -27,7 +27,7 @@ function ProfilePageHeader() {
   var pokemon_capturados = 0;
   var i = 0;
 
-  for (i in user_info.data.pokedex) {
+  for (i in user_info.data.user.pokedex) {
     pokemon_capturados += parseInt(user_info.data.pokedex[i].quantity);
     console.log(user_info.data.pokedex[i].quantity);
   }
@@ -46,9 +46,12 @@ function ProfilePageHeader() {
         ></div>
         <Container>
           <div className="photo-container">
-            <img alt="..." src={user_info.data.urlImagen}></img>
+            {/* <img alt="..." src={user_info.data.urlImagen}></img> */}
+            <img alt="..." src={user_info.data.user.user.urlFoto}></img>
           </div>
-          <h3 className="title">{user_info.data.username}</h3>
+          {/* <h3 className="title">{user_info.data.username}</h3> */}
+          <h3 className="title">{user_info.data.user.user.userName}</h3>
+          <br></br>
           <br></br>
           <p className="category">Entrenador Pokemon</p>
           <div className="content">
@@ -57,7 +60,8 @@ function ProfilePageHeader() {
               <p>Pokemones capturados</p>
             </div>
             <div className="social-description">
-              <h2>{user_info.data.totalPoints}</h2>
+              {/* <h2>{user_info.data.totalPoints}</h2> */}
+              <h2>{user_info.data.user.user.puntaje}</h2>
               <p>Puntaje acumulado</p>
             </div>
             <div className="social-description">

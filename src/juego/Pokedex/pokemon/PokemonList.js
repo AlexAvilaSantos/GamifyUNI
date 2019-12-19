@@ -12,9 +12,10 @@ export default class PokemonList extends Component {
   };
 
   async componentDidMount() {
-    const res = await axios.get(this.state.url);
+    // const res = await axios.get(this.state.url);
+    const res = JSON.parse(localStorage.getItem("users"));
     // this.setState({ pokemon: res.data["results"] });
-    this.setState({ pokemon: res.data.data["pokedex"] });
+    this.setState({ pokemon: res.data.user["pokedex"] });
   }
 
   render() {
