@@ -6,7 +6,7 @@
 
 ## 3. Perfil
 
-Ingresas a esta página automaticamente después de haberte logeado de manera correcta, luego siempre habra un link disponible en la parte izquierda. Aquí puedes revisar tus estadisticas básicas como jugador: tu nombre, tu foto de perfil, tu puntaje, cantidad de pokemones(mas detalles en pokedex) y puesto en el ranking.
+Ingresas a esta página automaticamente después de haberte logeado de manera correcta, luego siempre habra un link disponible en la parte izquierda. Aquí puedes revisar tus estadisticas básicas como jugador: tu nombre, tu foto de perfil, tu puntaje, cantidad de pokemones(mas detalles en pokedex) y puesto en el ranking. Todos estos datos vienen como respuesta a un **POST** que se envia durante el login que da como respuesta un **JSON** con la información necesaria del usuario.
 
 ![perfil](imagenes_readme/perfil1.png)
 
@@ -22,3 +22,5 @@ El pokedex consiste en dos ventanas dentro del proyecto que sirven para:
    ![pokedex](imagenes_readme/pokedex1.png)
 2. Para ver las estadisticas de cada uno de esos pokemones(mas que todo como insentivo ya que a los jugadores siempre le gustan las estadisticas).
    ![pokedex](imagenes_readme/pokedex2.png)
+
+El pokedex toma la información recibida en el **JSON** del login.
