@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Menu from '../menu/Menu'
 
 import Juego from './Juego'
 

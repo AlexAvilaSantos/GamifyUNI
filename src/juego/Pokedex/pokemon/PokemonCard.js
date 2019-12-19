@@ -66,7 +66,7 @@ export default class PokemonCard extends Component {
   }
 
   render() {
-    var number = 0;
+   // var number = 0;
     return (
       <div className="col-md-3 col-sm-6 mb-5">
         <StyledLink to={`pokemon/${this.state.pokemonIndex}`}>

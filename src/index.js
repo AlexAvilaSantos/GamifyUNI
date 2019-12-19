@@ -12,15 +12,9 @@ import "assets/demo/nucleo-icons-page-styles.css";
 import 'leaflet/dist/leaflet.css';
 // pages for this kit
 import Index from "views/Index.js";
-import NucleoIcons from "views/NucleoIcons.js";
 import LoginPage from "login/FormPage.js";
 //import LoginPage from "views/examples/LoginPage.js";
-import LandingPage from "views/examples/LandingPage.js";
-import ProfilePage from "views/examples/ProfilePage.js";
 import Admin from "juego/Admin"
-import Dashboard from "./juego/Pokedex/layout/Dashboard";
-import Pokemon from "./juego/Pokedex/pokemon/Pokemon";
-import JuegoPage from "./juego/componentes/juego/JuegoPage";
 
 ReactDOM.render( 
   <BrowserRouter>

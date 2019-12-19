@@ -2,7 +2,6 @@ import React from "react";
 
 import { Container } from "reactstrap";
 // core components
-import IndexNavbar from "components/Navbars/IndexNavbar.js";
 function IndexHeader() {
   let pageHeader = React.createRef();
 

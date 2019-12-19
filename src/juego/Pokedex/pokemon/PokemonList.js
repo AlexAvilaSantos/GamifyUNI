@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import PokemonCard from "./PokemonCard";
 import Loading from "../layout/Loading";
-import axios from "axios";
+//import axios from "axios";
 
 export default class PokemonList extends Component {
   state = {

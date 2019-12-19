@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Menu from '../menu/Menu'; // Componente Menú 
-import Slider from '../home/slider/Slider';
-import Servicios from '../servicios/Servicios';
+
 import axios from 'axios'
 
 import Mapa from './mapa/Mapa';

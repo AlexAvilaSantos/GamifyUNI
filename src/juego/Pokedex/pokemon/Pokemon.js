@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import Menu from "../../componentes/menu/Menu";
 import "../layout/Dashboard.css";
 
 const TYPE_COLORS = {

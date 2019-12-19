@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
+
 import L from "leaflet";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import "bootstrap/dist/css/bootstrap.min.css";
