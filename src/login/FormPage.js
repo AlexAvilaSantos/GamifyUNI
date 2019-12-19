@@ -15,20 +15,20 @@ class FormPage extends Component {
     // userService.logout();
 
     this.state = {
-      username: "",
-      password: "",
+      username: "ozuna",
+      password: "12345",
       submitted: false,
       status: false,
       loading: false,
       error: "",
-      empresa:""
+      empresa:"SMP Anime"
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    localStorage.clear();
+    ///localStorage.clear();
   }
 
   handleChange(e) {
@@ -37,28 +37,29 @@ class FormPage extends Component {
   }
 
   handleSubmit(e) {
+    
     e.preventDefault();
     const user_credentials = {
 
-      password: this.setState.password,
-      name: this.setState.username,
-      empresa: this.setState.empresa
+      password: this.state.password,
+      username: this.state.username,
+      empresa: this.state.empresa
     };
-    
-    AuthService.login(user_credentials).then(res => {
-      console.log(res.data);
+    console.log(user_credentials);
+    AuthService.login(user_credentials)
+     .then( res=>{
       if (res.statusText=== "OK") {
         this.setState({ submitted: true });
         console.log(res.data);
         localStorage.setItem("users", JSON.stringify(res.data));
-
+        console.log(res.data);
         const { from } = { from: { pathname: "/game" } };
         this.props.history.push(from);
       } else {
         this.setState({ error: res.data.message });
         this.setState({ loading: false });
       }
-    });
+    }).catch(this.state.error);
   }
   render() {
     const { username, password, submitted, loading, error,empresa } = this.state;
