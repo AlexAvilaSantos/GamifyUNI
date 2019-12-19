@@ -57,6 +57,8 @@ class Mapa extends Component {
               <div className="form-group">
                 <label>{pokeInfo.question}</label>
               </div>
+              {/* cambiar cuando el backend levante servicio
+              {this.showOptions(pokeInfo.options, this.state.selectedOption) }  */}
               {this.showOptions(abc.respuestas, this.state.selectedOption)}
               <div className="form-group">
                 {/* <button type="submit" className="btn btn-primary btn-sm">
