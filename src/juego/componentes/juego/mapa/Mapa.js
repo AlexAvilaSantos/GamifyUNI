@@ -41,7 +41,8 @@ class Mapa extends Component {
     selectedOption: "default",
     resultado: "none",
     show: false,
-    token: ""
+    token: "random",
+    id: "iduser"
   };
 
   showMarkers(pokeInfo){
@@ -90,12 +91,12 @@ class Mapa extends Component {
   handleFormSubmit = formSubmitEvent => {
     formSubmitEvent.preventDefault();
     const respuestaReq = {
-      token: "random",
-      id: "ideuser",
+      token: this.state.token,
+      id: this.state.id,
       respuesta: this.state.selectedOption
     };
     // Cuando el back funcione, cambiar por post
-    axios.get(linkForAnswer, this.state.token)
+    axios.get(linkForAnswer, respuestaReq)
     .then(res =>{
       console.log(res);
         console.log(res.data.data);
@@ -144,8 +145,7 @@ class Mapa extends Component {
         />
         <Marker position={usrPosition} icon={pointerIcon}>
           <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-            <ModalExample/>
+            Hola {this.state.id}. <br /> Bienvenido, suerte capturando su pokemons.
           </Popup>
         </Marker>
         {this.showPokemons()}
