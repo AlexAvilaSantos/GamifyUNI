@@ -30,8 +30,8 @@ const ModalExample = props => {
   function showModal() {
     if (resultado === "incorrecto") {
       return (
-        <Modal isOpen={modal} toggle={toggle} className={className}>
-          <ModalHeader toggle={toggle}>Vuelve a intentarlo</ModalHeader>
+        <Modal isOpen={modal} className={className}>
+          <ModalHeader >Vuelve a intentarlo</ModalHeader>
           <ModalBody>
             La respuesta no es la correcta, espere mientras se recupera
             {showTimer()} 
@@ -46,10 +46,10 @@ const ModalExample = props => {
           </ModalFooter>
         </Modal>
       )  
-    } else {
+    } else if (resultado === "correcto") {
       return (
-        <Modal isOpen={modal} toggle={toggle} className={className}>
-          <ModalHeader toggle={toggle}>Felicitaciones</ModalHeader>
+        <Modal isOpen={modal}  className={className} >
+          <ModalHeader  >Felicitaciones</ModalHeader>
           <ModalBody>
           Pokemon capturado, puede revisar su perfil.
           </ModalBody>
