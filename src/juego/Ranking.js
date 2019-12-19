@@ -9,6 +9,7 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import Ranking_serv from "./Ranking_service";
+import axios from "axios";
 
 const styles = {
   cardCategoryWhite: {
@@ -42,12 +43,8 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-// const Empresa = "UNI";
+
 // let jugadores = [];
-// Ranking_serv.enviar(Empresa).then(res => {
-//   console.log(res.data);
-//   jugadores = res.data.jugador;
-// });
 
 const jugadores = [
   // Devuelve todos los jugadores de la misma empresa
@@ -85,13 +82,43 @@ const jugadores = [
   }
 ];
 
+
+
+
+export default function TableList() {
+
+
+
+const RANKING_JSON ="http://ec2-18-219-251-98.us-east-2.compute.amazonaws.com/getRanking";
+const Empresa = "eres";
+function players ( url ) {
+    console.log("esperando pos");
+
+      axios.post(url,Empresa)
+        .then(result => {
+         console.log("hola ", ((result.data).data).jugador)
+         return ((result.data).data).jugador ;
+
+        }).catch(console.log)
+
+      
+      console.log("pos obtenida")
+      
+  }
+  console.log("funcion",players())
+
+  //const listItems = players(RANKING_JSON).map(jugador => [
+  //jugador.id,
+  //jugador.nombre,
+  //jugador.puntaje
+  //]);
+
 const listItems = jugadores.map(jugador => [
   jugador.id,
   jugador.nombre,
   jugador.puntaje
-]);
+  ]);
 
-export default function TableList() {
   const classes = useStyles();
   return (
     <GridContainer>
