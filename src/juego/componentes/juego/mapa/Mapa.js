@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-
+import { render } from "react-dom";
 import L from "leaflet";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import ModalExample from "./ModalExample"
 
+//link del back
 // const linkForAnswer = `https://jsonplaceholder.typicode.com/users`;
 const linkForAnswer = `https://api.myjson.com/bins/enlbk`;
 // const linkForAnswer = `https://my-json-server.typicode.com/typicode/demo/posts`;
@@ -14,7 +15,7 @@ export const pointerIcon = new L.Icon({
   iconUrl: require("../iconos/voulvas.jpg"),
   iconAnchor: [12.5, 25],
   popupAnchor: [0, -25],
-  iconSize: [25, 25]
+  iconSize: [25, 25],
 });
 
 const abc = {
@@ -39,7 +40,8 @@ class Mapa extends Component {
     zoom: 18,
     selectedOption: "default",
     resultado: "none",
-    show: false
+    show: false,
+    token: ""
   };
 
   showMarkers(pokeInfo){
@@ -92,7 +94,8 @@ class Mapa extends Component {
       id: "ideuser",
       respuesta: this.state.selectedOption
     };
-    axios.get(linkForAnswer)
+    // Cuando el back funcione, cambiar por post
+    axios.get(linkForAnswer, this.state.token)
     .then(res =>{
       console.log(res);
         console.log(res.data.data);
