@@ -27,9 +27,20 @@ Ingresas a esta página automaticamente después de haberte logeado de manera co
 ## 4. Juego/Mapa/Captura
 A esta página se llega por la opción Capturar Pokemon, aquí el navegador te pedirá acceso a tu ubicación para poder jugar y ver los pokemon en el mapa.
 
-![perfil](imagenes_readme/perfil1.png)
+![perfil](imagenes_readme/juego1.png)
 
-Para capturar el pokemon solo hace falta hacerle un click y se mostrará una pregunta con respuestas de opción multiple, de haber contestado exitosamente se mostrará un mensaje de Felicitaciones en caso contrario deberá esperar 5 segundos para recuperarse y seguir capturando pokemons.
+Para capturar el pokemon solo hace falta hacerle un click y se mostrará una pregunta con respuestas de opción multiple.
+
+![perfil](imagenes_readme/juego2.png)
+
+De haber contestado exitosamente se mostrará un mensaje de Felicitaciones
+
+![perfil](imagenes_readme/juego3.png)
+
+en caso contrario deberá esperar 5 segundos para recuperarse y seguir capturando pokemons.
+
+![perfil](imagenes_readme/juego4.png)
+
 ## 5. Ranking
 
 ## 6. Pokedex
