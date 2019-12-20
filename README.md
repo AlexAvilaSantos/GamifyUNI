@@ -7,7 +7,7 @@
 
 
 ## 1. Página de inicio
-En esta pagina nos mostrará la pagina de inicio o bienvenida donde podremos conocer más de la empresa a su vez nos rediccionará a la pagina de logeo al pulsar en login. 
+En esta pagina nos mostrará la pagina de inicio o bienvenida donde podremos conocer más de la empresa a su vez nos llevará a la pagina de logeo al pulsar en login. 
 
 ![index](imagenes_readme/index.png)
 
