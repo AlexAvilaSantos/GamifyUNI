@@ -1,13 +1,13 @@
 # Documentación de nuestra App en React
 - Instalar nodejs.
 
-- En una consola de windows, terminal de linux o Powershell correr el comando **npm install** para instalar     todas las dependencias del proyecto.
+- En una consola de windows, terminal de linux o Powershell correr el comando **npm install** para           instalar todas las dependencias del proyecto.
 
-- Correr el comando **npm start** con el cual levantará un servidor de desarrollo en http://localhost:3000       donde correremos la aplicación. 
+- Correr el comando **npm start** con el cual levantará un servidor de desarrollo en http://localhost:3000   donde correremos la aplicación. 
 
 
 ## 1. Página de inicio
-En esta pagina nos mostrará la pagina de inicio o bienvenida donde podremos conocer más de la empresa a su vez nos llevará a la pagina de logeo al pulsar en login. 
+Se nos mostrará la pagina de inicio o bienvenida donde podremos conocer más de la empresa a su vez nos llevará a la página de logeo al pulsar en login. 
 
 ![index](imagenes_readme/index.png)
 
