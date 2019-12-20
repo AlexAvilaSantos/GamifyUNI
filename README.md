@@ -1,9 +1,21 @@
 # Documentación de nuestra App en React
+- Instalar nodejs.
+
+- En una consola de windows, terminal de linux o Powershell correr el comando *npm install* para instalar     todas las dependencias del proyecto.
+
+- Correr el comando *npm start* con el cual levantará un servidor de desarrollo en http://localhost:3000       donde correremos la aplicación. 
+
 
 ## 1. Página de inicio
+En esta pagina nos mostrará la pagina de inicio o bienvenida donde podremos conocer más de la empresa a su vez nos rediccionará a la pagina de logeo al pulsar en login. 
+
+![index](imagenes_readme/index.png)
+
+En "Contactanos" nuestra información más detallada de la empresa.
+![contactanos](imagenes_readme/contactanos.png)
 
 ## 2. Login
-Una vez creado la empresa y los trabajadores de esta, podemos logearnos de manera sencilla con nuestro nombre de usuario, nuestra contraseña y el nombre de la empresa. Lo que internamente se hara es una consulta Post al backend donde se envia un JSON con datos escritos en el formulario. El Backend nos generara un JSon de respuesta que contara con un estatus que nos permitira acceder a nuestro perfil de usuario.
+Una vez creado la empresa y los trabajadores de esta, podemos logearnos de manera sencilla con nuestro nombre de usuario, nuestra contraseña y el nombre de la empresa. Lo que internamente se hara es una consulta Post al backend donde se envia un JSON con datos escritos en el formulario. El Backend nos generara un JSON de respuesta que contara con un estatus que nos permitira acceder a nuestro perfil de usuario.
 
 ![login](imagenes_readme/login.png)
 ## 3. Perfil
