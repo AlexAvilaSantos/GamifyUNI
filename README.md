@@ -3,7 +3,7 @@
 ## 1. Página de inicio
 
 ## 2. Login
-Una vez creado la empresa y los trabajadores de esta, podemos logearnos de manera sencilla con nuestro nombre de usuario, nuestra contraseña y el nombre de la empresa. 
+Una vez creado la empresa y los trabajadores de esta, podemos logearnos de manera sencilla con nuestro nombre de usuario, nuestra contraseña y el nombre de la empresa. Lo que internamente se hara es una consulta Post al backend donde se envia un JSON con datos escritos en el formulario. El Backend nos generara un JSon de respuesta que contara con un estatus que nos permitira acceder a nuestro perfil de ususario 
 ![login](imagenes_readme/login.png)
 ## 3. Perfil
 
