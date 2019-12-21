@@ -8,6 +8,7 @@
 - Estructura del proyecto
 
 src
+.
    |   index.js
    |   
    +---assets
@@ -177,6 +178,7 @@ src
                Download.js
                Navbars.js
 
+```
 En el index.js principal definimos las rutas tales como :
 /index aca se carga el componente que se encuentra en views/Index.js
 /game aca se carga el componente que se encuentra en juego/Admin.js
