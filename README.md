@@ -42,6 +42,7 @@ en caso contrario deberá esperar 5 segundos para recuperarse y seguir capturand
 ![perfil](imagenes_readme/juego4.png)
 
 ## 5. Ranking
+El Ranking nos muestra una lista ordenada de todos los participantes según sea la empresa. Todos estos datos vienen como respuesta a un **POST** que se envia el nombre de la empresa, que da como respuesta un **JSON** con la información necesaria de todos los usuarios.
 
 ## 6. Pokedex
 
