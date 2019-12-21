@@ -3,8 +3,188 @@
 
 - En una consola de windows, terminal de linux o Powershell correr el comando **npm install** para           instalar todas las dependencias del proyecto.
 
-- Correr el comando **npm start** con el cual levantará un servidor de desarrollo en http://localhost:3000   donde correremos la aplicación. 
+- Correr el comando **npm start** con el cual levantará un servidor de desarrollo en http://localhost:3000   donde correremos la aplicación.
 
+- Estructura del proyecto
+
+src
+   |   index.js
+   |   
+   +---assets
+   |   +---css
+   |   |       bootstrap.min.css
+   |   |       bootstrap.min.css.map
+   |   |       mi.css   
+   |   +---demo
+   |   |       demo.css
+   |   |       nucleo-icons-page-styles.css
+   |   |         
+   |   +---img
+   |   |       bg1.jpg
+   |   |       bg3.jpg
+   |   |       bg4.jpg
+   |   |       bg5.jpg
+   |   |       bg6.jpg
+   |   |       bg7.jpg
+   |   |       bg8.jpg
+   |   |       fondohd.png
+   |   |       header1.jpg
+   |   |       header3.jpg
+   |   |       header5.jpg
+   |   |       hero-image-1.png
+   |   |       hero-image-2.png
+   |   |       hero-image-3.png
+   |   |       login.jpg
+   |   |       main.jpg
+   |   |       perfil.png
+   |   |       pokeball.svg
+   |   |       pokeunilogo.png
+   |   |       profile.jpg
+   |   |       ryan.jpg
+   |   |       sidebar-2.jpg  
+   |   +---scss
+   |   |   \---react
+   |   |       |   react-differences.scss
+   |   |       |   
+   |   |       +---now-ui-kit
+   |   |       |       _dropdowns.scss
+   |   |       |       _misc.scss
+   |   |       |       _modals.scss
+   |   |       |       _popovers.scss
+   |   |       |       _responsive.scss
+   |   |       |       _sections.scss
+   |   |       |       _typography.scss
+   |   |       |       
+   |   |       \---plugins
+   |   |               _plugin-nouislider.scss
+   |   |               _plugin-react-datetime.scss
+   |   |                    
+   +---components
+   |   +---Footers
+   |   |       DarkFooter.js
+   |   |       TransparentFooter.js
+   |   |       
+   |   +---Grid
+   |   |       GridContainer.js
+   |   |       GridItem.js
+   |   |       
+   |   +---Headers
+   |   |       IndexHeader.js
+   |   |       LandingPageHeader.js
+   |   |       ProfilePageHeader.js
+   |   |       
+   |   +---Navbars
+   |   |       ExamplesNavbar.js
+   |   |       IndexNavbar.js
+   |   |       LoginNavbar.js
+   |   |       
+   |   \---Table
+   |           Table.js
+   |           
+   +---juego
+   |   |   Admin.js
+   |   |   Perfil.js
+   |   |   Ranking.js
+   |   |   Ranking_service.js
+   |   |   routes.js
+   |   |   
+   |   +---componentes
+   |   |   |   HomePage.js
+   |   |   |   
+   |   |   +---CustomButtons
+   |   |   |       Button.js
+   |   |   |       CustomInput.js
+   |   |   |       
+   |   |   +---footer
+   |   |   |       Footer.js
+   |   |   |               
+   |   |   +---juego
+   |   |   |   |   Juego.js
+   |   |   |   |   JuegoPage.js
+   |   |   |   |   
+   |   |   |   +---iconos
+   |   |   |   |       lugia.jpg
+   |   |   |   |       pikachu.jpg
+   |   |   |   |       ratatta.jpg
+   |   |   |   |       voulvas.jpg
+   |   |   |   |       
+   |   |   |   +---mapa
+   |   |   |   |       Mapa.js
+   |   |   |   |       ModalExample.js
+   |   |   |   |       
+   |   |   |   \---timer
+   |   |   |           Timer.js
+   |   |   |           
+   |   |   +---menu
+   |   |   |       Menu.js
+   |   |   |       
+   |   |   +---Navbars
+   |   |   |       AdminNavbarLinks.js
+   |   |   |       Navbar.js
+   |   |   |       RTLNavbarLinks.js
+   |   |   |       
+   |   |   +---servicios
+   |   |   |       Servicios.js
+   |   |   |       
+   |   |   \---Sidebar
+   |   |           Sidebar.js
+   |   |           
+   |   \---Pokedex
+   |       +---layout
+   |       |       Dashboard.css
+   |       |       Dashboard.js
+   |       |       Loading.js
+   |       |       NavBar.js
+   |       |       spinner.gif
+   |       |       
+   |       +---pokemon
+   |       |       Pokemon.js
+   |       |       PokemonCard.js
+   |       |       PokemonList.js
+   |       |       
+   |       \---search
+   |               SearchBar.js
+   |               
+   +---login
+   |   |   FormPage.css
+   |   |   FormPage.js
+   |   |   FormPageBase.js
+   |   |   imagen.jpg
+   |   |   
+   |   \---__componentes
+   |           AuthService.js
+   |           PrivateRoute.js
+   |           
+   +---services
+   |   |   background.css
+   |   |   HomeContainer.js
+   |   |   
+   |   \---images
+   |           fondohd.png
+   |           main.jpg
+   |           main2.jpg
+   |           
+   \---views
+       |   Index.js
+       |   NucleoIcons.js
+       |   
+       +---examples
+       |       LandingPage.js
+       |       LoginPage.js
+       |       ProfilePage.js
+       |       
+       \---index-sections
+               Download.js
+               Navbars.js
+
+En el index.js principal definimos las rutas tales como :
+/index aca se carga el componente que se encuentra en views/Index.js
+/game aca se carga el componente que se encuentra en juego/Admin.js
+/login-page aca se carga el componente que se encuentra en views/LoginPage.js
+
+Una vez nos logueados el encargado de manejar los componentes es Admin.js, nos va ir actualizando según si queremos ver perfil views/ProfilePage.js, ranking en Ranking en Ranking.js, pokedex en Pokedex/layout/Dashboard.js y juego en /componentes/juego/JuegoPage.js.
+
+Asu vez estos llaman a componentes secundarios.
 
 ## 1. Página de inicio
 Se nos mostrará la pagina de inicio o bienvenida donde podremos conocer más de la empresa a su vez nos llevará a la página de logeo al pulsar en login. 
