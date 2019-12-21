@@ -6,9 +6,8 @@
 - Correr el comando **npm start** con el cual levantará un servidor de desarrollo en http://localhost:3000   donde correremos la aplicación.
 
 - Estructura del proyecto
-
+~~~
 src
-.
    |   index.js
    |   
    +---assets
@@ -177,8 +176,7 @@ src
        \---index-sections
                Download.js
                Navbars.js
-
-```
+~~~
 En el index.js principal definimos las rutas tales como :
 /index aca se carga el componente que se encuentra en views/Index.js
 /game aca se carga el componente que se encuentra en juego/Admin.js
